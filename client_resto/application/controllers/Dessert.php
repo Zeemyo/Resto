@@ -52,7 +52,7 @@ class Dessert extends CI_Controller
                 "nama_dessert" => $this->input->post('nama_dessert'),
                 "harga_dessert" => $this->input->post('harga_dessert'),
                 "stok_dessert" => $this->input->post('stok_dessert'),
-                "HEHE" => "KEY-920"
+                "HEHE" => "KEY-28642"
             ];
              $insert = $this->Dessert_model->save($data);
 
@@ -90,7 +90,7 @@ class Dessert extends CI_Controller
                 "nama_dessert" => $this->input->post('nama_dessert'),
                 "harga_dessert" => $this->input->post('harga_dessert'),
                 "stok_dessert" => $this->input->post('stok_dessert'),
-                "HEHE" => "KEY-920"
+                "HEHE" => "KEY-28642"
             ];
              $update = $this->Dessert_model->update($data);
 

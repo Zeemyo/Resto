@@ -52,7 +52,7 @@ class akanan extends CI_Controller
                 "harga_makanan" => $this->input->post('harga_makanan'),
                 "nama_makanan" => $this->input->post('nama_makanan'),
                 "stok_makanan" => $this->input->post('stok_makanan'),
-                "HEHE" => "KEY-920"
+                "HEHE" => "KEY-28642"
             ];
              $insert = $this->makanan_model->save($data);
 
@@ -90,7 +90,7 @@ class akanan extends CI_Controller
                 "harga_makanan" => $this->input->post('harga_makanan'),
                 "nama_makanan" => $this->input->post('nama_makanan'),
                 "stok_makanan" => $this->input->post('stok_makanan'),
-                "HEHE" => "KEY-920"
+                "HEHE" => "KEY-28642"
             ];
              $update = $this->makanan_model->update($data);
 
