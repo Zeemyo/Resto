@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2022 at 03:08 PM
+-- Generation Time: Jul 25, 2022 at 06:06 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -99,6 +99,13 @@ CREATE TABLE `laporan` (
   `jumlah` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `laporan`
+--
+
+INSERT INTO `laporan` (`id_laporan`, `id_pesan`, `id_order`, `id_makanan`, `id_minuman`, `id_dessert`, `tgl_laporan`, `jumlah`) VALUES
+(1, 1, 2, 1, 1, 1, '2022-08-12', 1200000);
+
 -- --------------------------------------------------------
 
 --
@@ -118,18 +125,30 @@ CREATE TABLE `limits` (
 --
 
 INSERT INTO `limits` (`id`, `uri`, `count`, `hour_started`, `api_key`) VALUES
-(1, 'uri:API/makanan/makanan:get', 3, 1658141717, 'KEY-28642'),
+(1, 'uri:API/makanan/makanan:get', 16, 1658576621, 'KEY-28642'),
 (2, 'uri:API/makanan/makanan:post', 1, 1658143552, 'KEY-28642'),
 (3, 'uri:API/makanan/makanan:put', 1, 1658143857, 'KEY-28642'),
 (4, 'uri:API/makanan/makanan:delete', 1, 1658144044, 'KEY-28642'),
-(5, 'uri:API/minuman/minuman:get', 3, 1658224263, 'KEY-28642'),
+(5, 'uri:API/minuman/minuman:get', 10, 1658577222, 'KEY-28642'),
 (6, 'uri:API/minuman/minuman:post', 3, 1658224363, 'KEY-28642'),
 (7, 'uri:API/minuman/minuman:put', 1, 1658224511, 'KEY-28642'),
 (8, 'uri:API/minuman/minuman:delete', 1, 1658224653, 'KEY-28642'),
 (9, 'uri:API/dessert/dessert:post', 7, 1658225201, 'KEY-28642'),
-(10, 'uri:API/dessert/dessert:get', 2, 1658226633, 'KEY-28642'),
+(10, 'uri:API/dessert/dessert:get', 23, 1658576833, 'KEY-28642'),
 (11, 'uri:API/dessert/dessert:put', 2, 1658226815, 'KEY-28642'),
-(12, 'uri:API/dessert/dessert:delete', 1, 1658226901, 'KEY-28642');
+(12, 'uri:API/dessert/dessert:delete', 1, 1658226901, 'KEY-28642'),
+(13, 'uri:API/laporan/laporan:get', 13, 1658576815, 'KEY-28642'),
+(14, 'uri:API/order/order:post', 1, 1658568547, 'KEY-28642'),
+(15, 'uri:API/order/order:get', 17, 1658577998, 'KEY-28642'),
+(16, 'uri:API/order/order:put', 2, 1658308758, 'KEY-28642'),
+(17, 'uri:API/pesan/pesan:post', 5, 1658576211, 'KEY-28642'),
+(18, 'uri:API/order/order:delete', 2, 1658390877, 'KEY-28642'),
+(19, 'uri:API/pesan/pesan:get', 17, 1658575832, 'KEY-28642'),
+(20, 'uri:API/pesan/pesan:put', 7, 1658391269, 'KEY-28642'),
+(21, 'uri:API/pesan/pesan:delete', 1, 1658394454, 'KEY-28642'),
+(22, 'uri:API/laporan/laporan:post', 3, 1658578695, 'KEY-28642'),
+(23, 'uri:API/laporan/laporan:put', 1, 1658396304, 'KEY-28642'),
+(24, 'uri:API/laporan/laporan:delete', 1, 1658578954, 'KEY-28642');
 
 -- --------------------------------------------------------
 
@@ -180,11 +199,21 @@ INSERT INTO `minuman` (`id_minuman`, `nama_minuman`, `harga_minuman`, `stok_minu
 
 CREATE TABLE `order` (
   `id_order` int(11) NOT NULL,
+  `id_makanan` int(11) NOT NULL,
+  `id_minuman` int(11) NOT NULL,
+  `id_dessert` int(11) NOT NULL,
   `no_meja` int(11) NOT NULL,
   `total_harga` int(20) NOT NULL,
   `uang_bayar` int(20) NOT NULL,
   `uang_kembali` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id_order`, `id_makanan`, `id_minuman`, `id_dessert`, `no_meja`, `total_harga`, `uang_bayar`, `uang_kembali`) VALUES
+(2, 1, 1, 2, 12, 100000, 100000, 90);
 
 -- --------------------------------------------------------
 
@@ -198,6 +227,13 @@ CREATE TABLE `pesan` (
   `id_user` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `id_order`, `id_user`, `jumlah`) VALUES
+(1, 2, 1, 120000);
 
 -- --------------------------------------------------------
 
@@ -213,6 +249,13 @@ CREATE TABLE `user` (
   `verification_key` varchar(60) NOT NULL,
   `is_email_verified` enum('no','yes') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `email`, `password`, `name`, `verification_key`, `is_email_verified`) VALUES
+(1, 'zidanalam@gmail.com', '12345', 'Zidan', '14234354', 'yes');
 
 --
 -- Indexes for dumped tables
@@ -242,10 +285,10 @@ ALTER TABLE `keys`
 ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id_laporan`),
   ADD UNIQUE KEY `id_pesan` (`id_pesan`,`id_order`,`id_makanan`,`id_minuman`,`id_dessert`),
+  ADD KEY `id_order` (`id_order`),
   ADD KEY `id_minuman` (`id_minuman`),
   ADD KEY `id_makanan` (`id_makanan`),
-  ADD KEY `id_dessert` (`id_dessert`),
-  ADD KEY `id_order` (`id_order`);
+  ADD KEY `id_dessert` (`id_dessert`);
 
 --
 -- Indexes for table `limits`
@@ -269,7 +312,10 @@ ALTER TABLE `minuman`
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`id_order`);
+  ADD PRIMARY KEY (`id_order`),
+  ADD UNIQUE KEY `id_makanan` (`id_makanan`,`id_minuman`,`id_dessert`),
+  ADD KEY `id_minuman` (`id_minuman`),
+  ADD KEY `id_dessert` (`id_dessert`);
 
 --
 -- Indexes for table `pesan`
@@ -305,7 +351,7 @@ ALTER TABLE `keys`
 -- AUTO_INCREMENT for table `limits`
 --
 ALTER TABLE `limits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
@@ -315,11 +361,19 @@ ALTER TABLE `limits`
 -- Constraints for table `laporan`
 --
 ALTER TABLE `laporan`
-  ADD CONSTRAINT `laporan_ibfk_1` FOREIGN KEY (`id_minuman`) REFERENCES `minuman` (`id_minuman`),
-  ADD CONSTRAINT `laporan_ibfk_2` FOREIGN KEY (`id_makanan`) REFERENCES `makanan` (`id_makanan`),
-  ADD CONSTRAINT `laporan_ibfk_3` FOREIGN KEY (`id_dessert`) REFERENCES `dessert` (`id_dessert`),
   ADD CONSTRAINT `laporan_ibfk_4` FOREIGN KEY (`id_order`) REFERENCES `order` (`id_order`),
-  ADD CONSTRAINT `laporan_ibfk_5` FOREIGN KEY (`id_pesan`) REFERENCES `pesan` (`id_pesan`);
+  ADD CONSTRAINT `laporan_ibfk_5` FOREIGN KEY (`id_pesan`) REFERENCES `pesan` (`id_pesan`),
+  ADD CONSTRAINT `laporan_ibfk_6` FOREIGN KEY (`id_minuman`) REFERENCES `minuman` (`id_minuman`),
+  ADD CONSTRAINT `laporan_ibfk_7` FOREIGN KEY (`id_makanan`) REFERENCES `makanan` (`id_makanan`),
+  ADD CONSTRAINT `laporan_ibfk_8` FOREIGN KEY (`id_dessert`) REFERENCES `dessert` (`id_dessert`);
+
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`id_minuman`) REFERENCES `minuman` (`id_minuman`),
+  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`id_makanan`) REFERENCES `makanan` (`id_makanan`),
+  ADD CONSTRAINT `order_ibfk_3` FOREIGN KEY (`id_dessert`) REFERENCES `dessert` (`id_dessert`);
 
 --
 -- Constraints for table `pesan`

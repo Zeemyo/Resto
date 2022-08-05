@@ -3,8 +3,8 @@
     <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item"><a>kbm</a></li>
-            <li class="breadcrumb-item active" aria-current="page">List Data kbm</li>
+            <li class="breadcrumb-item"><a>Laporan</a></li>
+            <li class="breadcrumb-item active" aria-current="page">List Data Laporan</li>
         </ol>
     </nav>
     <div class="row">
@@ -24,17 +24,18 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered tablehover text-sm" id="tableMahasiswa">
+                        <table class="table table-striped table-bordered tablehover text-sm" id="tableLaporan">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>ID Laporan</th>
-                                    <th>ID Pesan</th>
-                                    <th>ID Order</th>
-                                    <th>ID Makanan</th>
-                                    <th>ID Minuman</th>
-                                    <th>ID Dessert</th>
-                                    <th>TGL Laporan</th>
-                                    <th>Jumlah</th>
+                                    <th>ID LAPORAN</th>
+                                    <th>ID PESAN</th>
+                                    <th>ID ORDER</th>
+                                    <th>ID MAKANAN</th>
+                                    <th>ID MINUMAN</th>
+                                    <th>ID DESSERT</th>
+                                    <th>TGL LAPORAN</th>
+                                    <th>JUMLAH</th>
+                                    <th>ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,9 +52,9 @@
                                         <td><?= $row['tgl_laporan'] ?></td>
                                         <td><?= $row['jumlah'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('Restoran/detail/'.$row['id_laporan'])?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                            <a href="<?= base_url('Restoran/edit/'.$row['id_laporan'])?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="<?= base_url('Restoran/delete/'.$row['id_laporan'])?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
+                                            <a href="<?= base_url('laporan/detail/'.$row['id_laporan'])?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+                                            <a href="<?= base_url('laporan/edit/'.$row['id_laporan'])?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a href="<?= base_url('laporan/delete/'.$row['id_laporan'])?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

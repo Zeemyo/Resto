@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
             <li class="breadcrumb-item"><a>Minuman</a></li>
-            <li class="breadcrumb-item "><a href="<?= base_url('mahasiswa'); ?>">List Data Minuman</a></li>
+            <li class="breadcrumb-item "><a href="<?= base_url('minuman'); ?>">List Data Minuman</a></li>
             <li class="breadcrumb-item active" aria-current="page">Add Data Minuman</li>
         </ol>
     </nav>

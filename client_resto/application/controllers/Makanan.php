@@ -1,19 +1,19 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class akanan extends CI_Controller
+class Makanan extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('makanan_model');
+        $this->load->model('Makanan_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
         $data['title'] = "List data makanan";
-        $data['data_makanan'] = $this->makanan_model->getAll();
+        $data['data_makanan'] = $this->Makanan_model->getAll();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/menu');
@@ -24,7 +24,7 @@ class akanan extends CI_Controller
     public function detail($id_makanan)
     {
         $data['title'] = "List data makanan";
-        $data['data_makanan'] = $this->makanan_model->getByid($id_makanan);
+        $data['data_makanan'] = $this->Makanan_model->getByid($id_makanan);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/menu');
@@ -54,7 +54,7 @@ class akanan extends CI_Controller
                 "stok_makanan" => $this->input->post('stok_makanan'),
                 "HEHE" => "KEY-28642"
             ];
-             $insert = $this->makanan_model->save($data);
+             $insert = $this->Makanan_model->save($data);
 
             if($insert['response_code'] === 201) {
                 $this->session->set_flashdata('flash', 'Menambahkan data makanan');
@@ -72,7 +72,7 @@ class akanan extends CI_Controller
     public function edit($id_makanan)
     {
         $data['title'] = "Ubah data makanan";
-        $data['data_makanan'] = $this->makanan_model->getByid($id_makanan);
+        $data['data_makanan'] = $this->Makanan_model->getByid($id_makanan);
 
         $this->form_validation->set_rules('id_makanan', 'id_makanan', 'trim|required|numeric');
         $this->form_validation->set_rules('harga_makanan', 'harga_makanan', 'trim|required');
@@ -92,7 +92,7 @@ class akanan extends CI_Controller
                 "stok_makanan" => $this->input->post('stok_makanan'),
                 "HEHE" => "KEY-28642"
             ];
-             $update = $this->makanan_model->update($data);
+             $update = $this->Makanan_model->update($data);
 
             if($update['response_code'] === 201) {
                 $this->session->set_flashdata('flash', 'mengubah data makanan');
@@ -109,7 +109,7 @@ class akanan extends CI_Controller
 
     public function delete($id_makanan)
     {
-        $delet = $this->makanan_model->delete($id_makanan);
+        $delet = $this->Makanan_model->delete($id_makanan);
 
         if($delet['response_code'] === 200) {
             $this->session->set_flashdata('flash', 'menghapus data makanan');

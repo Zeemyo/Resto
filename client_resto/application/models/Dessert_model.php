@@ -11,7 +11,7 @@ class Dessert_model extends CI_Model
     {
         parent::__construct();
         $this->_guzzle = new Client([
-            'base_uri' => 'http://localhost/restoran/rest_restoran/API/desert/desert',
+            'base_uri' => 'http://localhost/restoran/rest_resto/API/dessert/dessert',
             'auth'  => ['admin', '1234']
         ]);
     }

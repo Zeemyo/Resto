@@ -15,13 +15,12 @@
                     Detail Data Minuman
                 </div>
                 <div class="card-body">     
-                    <h5 class="card-title"><b>ID MINUMAN :</b><br><?= $data_restoran['id_mminuman'] ?></h5>
-                    <p class="card-text"><b>NAMA MINUMAN :</b><br><?= $data_restoran['nama_minuman'] ?></p>
-                    <p class="card-text"><b>HARGA MINUMAN :</b><br><?= $data_restoran['harga_minuman'] ?></p>
-                    <p class="card-text"><b>STOK MINUMAN :</b><br><?= $data_restoran['stok_minuman'] ?></p>
-                    <h6 class="card-subtitle mb-2 text-muted"><b>Email :</b><br><?= $data_mahasisa['email'] ?></h6>
+                    <h5 class="card-title"><b>ID MINUMAN :</b><br><?= $data_minuman['id_minuman'] ?></h5>
+                    <p class="card-text"><b>NAMA MINUMAN :</b><br><?= $data_minuman['nama_minuman'] ?></p>
+                    <p class="card-text"><b>HARGA MINUMAN :</b><br><?= $data_minuman['harga_minuman'] ?></p>
+                    <p class="card-text"><b>STOK MINUMAN :</b><br><?= $data_minuman['stok_minuman'] ?></p>
                     <p></p>
-                    <a href="<?= base_url(); ?>mahasiswa" class="btn btn-primary">Kembali</a>
+                    <a href="<?= base_url(); ?>minuman" class="btn btn-primary">Kembali</a>
                 </div>
             </div>
 

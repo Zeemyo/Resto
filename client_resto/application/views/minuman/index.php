@@ -4,12 +4,12 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
             <li class="breadcrumb-item"><a>Minuman</a></li>
-            <li class="breadcrumb-item active" aria-current="page">List Data</li>
+            <li class="breadcrumb-item active" aria-current="page">List Data Minuman</li>
         </ol>
     </nav>
     <div class="row">
         <div class="col-md-12">
-            <a class="btn btn-primary mb-2" href="<?= base_url('minuman/add')?>">Tambah Data</a>
+            <a class="btn btn-primary mb-2" href="<?= base_url('minuman/add')?>">Tambah Data Minuman</a>
             <div mb-2>
                 <!-- Menampilkan flash data (pesan saat data error)-->
                 <?php if ($this->session->flashdata('message')) : ?>
@@ -31,7 +31,7 @@
                                     <th>NAMA MINUMAN</th>
                                     <th>HARGA MINUMAN</th>
                                     <th>STOK MINUMAN</th>
-
+                                    <th>ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>

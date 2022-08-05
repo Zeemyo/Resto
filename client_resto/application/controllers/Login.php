@@ -1,48 +1,31 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+class Login_controller extends CI_Controller
+{
+	public function __construct()
+	{
+	parent::__construct();
+	$this->load->database();
+	$this->load->helper('url');
+	$this->load->model('Login_model'); ///load model
+	}
 
-class Login extends CI_Controller {
+	public function index()
+	{
 
- public function __construct()
- {
-  parent::__construct();
-  if($this->session->userdata('id_user'))
-  {
-   redirect('private_area');
-  }
-  $this->load->library('form_validation');
-  $this->load->library('encrypt');
-  $this->load->model('login_model');
- }
+		if($this->input->post('login'))
+		{
+		$username=$this->input->post('username');
+		$password=$this->input->post('password');
 
- function index()
- {
-  $this->load->view('login');
- }
+		$this->Login_model->check_data($username,$password);
 
- function validation()
- {
-  $this->form_validation->set_rules('user_email', 'Email Address', 'required|trim|valid_email');
-  $this->form_validation->set_rules('user_password', 'Password', 'required');
-  if($this->form_validation->run())
-  {
-   $result = $this->login_model->can_login($this->input->post('user_email'), $this->input->post('user_password'));
-   if($result == '')
-   {
-    redirect('private_area');
-   }
-   else
-   {
-    $this->session->set_flashdata('message',$result);
-    redirect('login');
-   }
-  }
-  else
-  {
-   $this->index();
-  }
- }
+	}else{
+	$this->load->view('login_view');
+	}
+	}
 
+	public function welcome(){
+		$this->load->view('welcome_view');
+	}
 }
-
 ?>

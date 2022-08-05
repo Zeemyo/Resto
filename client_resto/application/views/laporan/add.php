@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
             <li class="breadcrumb-item"><a>Laporan</a></li>
-            <li class="breadcrumb-item "><a href="<?= base_url('laporan'); ?>">List_Data_Laporan</a></li>
+            <li class="breadcrumb-item "><a href="<?= base_url('laporan'); ?>">List Data Laporan</a></li>
             <li class="breadcrumb-item active" aria-current="page">Add Laporan</li>
         </ol>
     </nav>
@@ -26,58 +26,83 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="id_pesan" class="col-sm-2 col-form-label">ID Pesan</label>
+					<div class="form-group row">
+                        <label for="id_pesan" class="col-sm-2 col-form-label">Pesan</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="id_pesan" name="id_pesan" value="<?= set_value('id_pesan'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('id_pesan') ?>
+                            <select class="form-control" id="id_pesan" name="id_pesan">
+                                <option value="">Pilih Pesanan</option>
+								<?php foreach ($data_pesan as $row):?>
+								<option value="<?= $row['id_pesan']?>"><?= $row['id_pesan']?></option>
+								<?php endforeach; ?>
+                                </select>
+                                <small class="text-danger">
+								<?php echo form_error('id_pesan') ?>
+                            </small>
+                        </div>
+                    </div>
+
+					<div class="form-group row">
+                        <label for="id_order" class="col-sm-2 col-form-label">Orderan</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="id_order" name="id_order">
+                                <option value="">Pilih Orderan</option>
+								<?php foreach ($data_order as $row):?>
+								<option value="<?= $row['id_order']?>"><?= $row['id_order']?></option>
+								<?php endforeach; ?>
+                                </select>
+                                <small class="text-danger">
+								<?php echo form_error('id_order') ?>
+                            </small>
+                        </div>
+                    </div>
+
+					<div class="form-group row">
+                        <label for="id_makanan" class="col-sm-2 col-form-label">Makanan</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="id_makanan" name="id_makanan">
+                                <option value="">Pilih Makanan</option>
+								<?php foreach ($data_makanan as $row):?>
+								<option value="<?= $row['id_makanan']?>"><?= $row['nama_makanan']?></option>
+								<?php endforeach; ?>
+                                </select>
+                                <small class="text-danger">
+								<?php echo form_error('id_makanan') ?>
+                            </small>
+                        </div>
+                    </div>
+
+					<div class="form-group row">
+                        <label for="id_minuman" class="col-sm-2 col-form-label">Minuman</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="id_minuman" name="id_minuman">
+                                <option value="">Pilih Minuman</option>
+								<?php foreach ($data_minuman as $row):?>
+								<option value="<?= $row['id_minuman']?>"><?= $row['nama_minuman']?></option>
+								<?php endforeach; ?>
+                                </select>
+                                <small class="text-danger">
+								<?php echo form_error('id_minuman') ?>
+                            </small>
+                        </div>
+                    </div>
+
+					<div class="form-group row">
+                        <label for="id_dessert" class="col-sm-2 col-form-label">Dessert</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="id_dessert" name="id_dessert">
+                                <option value="">Pilih Dessert</option>
+								<?php foreach ($data_dessert as $row):?>
+								<option value="<?= $row['id_dessert']?>"><?= $row['nama_dessert']?></option>
+								<?php endforeach; ?>
+                                </select>
+                                <small class="text-danger">
+								<?php echo form_error('id_dessert') ?>
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="id_order" class="col-sm-2 col-form-label">ID Order</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="id_order" name="id_order" value=" <?= set_value('id_order'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('id_order') ?>
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="id_makanan" class="col-sm-2 col-form-label">ID Makanan</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="id_makanan" name="id_makanan" value=" <?= set_value('id_makanan'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('id_makanan') ?>
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="id_minuman" class="col-sm-2 col-form-label">ID Minuman</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="id_minuman" name="id_minuman" value=" <?= set_value('id_minuman'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('id_minuman') ?>
-                            </small>
-                        </div>
-                    </div>  
-
-                    <div class="form-group row">
-                        <label for="id_dessert" class="col-sm-2 col-form-label">ID Dessert</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="id_dessert" name="id_dessert" value=" <?= set_value('id_dessert'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('id_dessert') ?>
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="tgl_laporan" class="col-sm-2 col-form-label">TGL Laporan</label>
+                        <label for="tgl_laporan" class="col-sm-2 col-form-label">Tanggal Laporan</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="tgl_laporan" name="tgl_laporan" value=" <?= set_value('tgl_laporan'); ?>">
                             <small class="text-danger">

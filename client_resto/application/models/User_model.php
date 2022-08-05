@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 use GuzzleHttp\Client;
 
-class Makanan_model extends CI_Model
+class User_model extends CI_Model
 {
     private $_guzzle;
 
@@ -11,7 +11,7 @@ class Makanan_model extends CI_Model
     {
         parent::__construct();
         $this->_guzzle = new Client([
-            'base_uri' => 'http://localhost/restoran/rest_resto/API/makanan/makanan',
+            'base_uri' => 'http://localhost/restoran/rest_resto/API/pesan/pesan',
             'auth'  => ['admin', '1234']
         ]);
     }
@@ -31,12 +31,12 @@ class Makanan_model extends CI_Model
         return $result['data'];
     }
 
-    public function getByid($id_makanan)
+    public function getByid($id_user)
     {
         $response = $this->_guzzle->request('GET', '', [
             'query' => [
                 'HEHE' => 'KEY-28642',
-                'id_makanan' => $id_makanan
+                'id_user' => $id_user
             ]
         ]);
 
@@ -69,13 +69,13 @@ class Makanan_model extends CI_Model
         return $result;
     }
 
-    public function delete($id_makanan)
+    public function delete($id_user)
     {
         $response = $this->_guzzle->request('DELETE', '', [
             'form_params' => [
             'http_errors' => false,
             'HEHE' => 'KEY-28642',
-            'id_makanan' => $id_makanan
+            'id_user' => $id_user
             ]
         ]);
 

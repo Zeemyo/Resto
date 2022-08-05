@@ -1,37 +1,31 @@
 <?php
 class Login_model extends CI_Model
 {
- function can_login($email, $password)
- {
-  $this->db->where('email', $email);
-  $query = $this->db->get('user');
-  if($query->num_rows() > 0)
-  {
-   foreach($query->result() as $row)
-   {
-    if($row->is_email_verified == 'yes')
-    {
-     $store_password = $this->encrypt->decode($row->password);
-     if($password == $store_password)
-     {
-      $this->session->set_userdata('id', $row->id);
-     }
-     else
-     {
-      return 'Wrong Password';
-     }
-    }
-    else
-    {
-     return 'First verified your email address';
-    }
-   }
-  }
-  else
-  {
-   return 'Wrong Email Address';
-  }
- }
-}
+	function check_data($username,$password)
+	{
+	$query=$this->db->query("select * from user where (email='".$username."' or phone='".$username."')");
+		$row = $query->num_rows();
+		if($row)
+		{
+		$res=$query->result_array();
+		$email=$res[0]['email'];
+		$phone=$res[0]['phone'];
+		$query=$this->db->query("select * from user where (email='".$email."' and phone='".$phone."') and password='$password'");
+		$row1 = $query->num_rows();
+		 if($row1){
+			redirect('http://localhost/ci/index.php/Login_controller/welcome');
+		 }else{
+			$data['message']="<h3 style='color:red'>Password is not correct.</h3>";
+            $this->load->view('login_view',@$data);
+		 }
+		}
+		else
+		{
+		$data['message']="<h3 style='color:red'>This user is not registered</h3>";
+        $this->load->view('login_view',@$data);
+		}
 
-?>
+
+		}
+
+}

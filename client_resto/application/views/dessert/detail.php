@@ -15,12 +15,12 @@
                     Detail Data Dessert
                 </div>
                 <div class="card-body">     
-                    <h5 class="card-title"><b>ID Dessert :</b><br><?= $data_siswa['id_siswa'] ?></h5>
-                    <p class="card-text"><b>Nama Dessert :</b><br><?= $data_siswa['nis'] ?></p>
-                    <p class="card-text"><b>Harga Dessert :</b><br><?= $data_siswa['nama_siswa'] ?></p>
-                    <p class="card-text"><b>Stok Dessert :</b><br><?= $data_siswa['tgl_lahir'] ?></p>
+                    <h5 class="card-title"><b>ID Dessert :</b><br><?= $data_dessert['id_dessert'] ?></h5>
+                    <p class="card-text"><b>Nama Dessert :</b><br><?= $data_dessert['nama_dessert'] ?></p>
+                    <p class="card-text"><b>Harga Dessert :</b><br><?= $data_dessert['harga_dessert'] ?></p>
+                    <p class="card-text"><b>Stok Dessert :</b><br><?= $data_dessert['stok_dessert'] ?></p>
                     <p></p>
-                    <a href="<?= base_url(); ?>siswa" class="btn btn-primary">Kembali</a>
+                    <a href="<?= base_url(); ?>dessert" class="btn btn-primary">Kembali</a>
                 </div>
             </div>
 

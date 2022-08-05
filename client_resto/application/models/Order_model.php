@@ -11,13 +11,14 @@ class Order_model extends CI_Model
     {
         parent::__construct();
         $this->_guzzle = new Client([
-            'base_uri' => 'http://localhost/restoran/rest_restoran/API/order/order',
+            'base_uri' => 'http://localhost/restoran/rest_resto/API/order/order',
             'auth'  => ['admin', '1234']
         ]);
     }
 
     public function getAll()
     {
+		
         $response = $this->_guzzle->request('GET', '', [
             'query' => [
                 'HEHE' => 'KEY-28642'
@@ -45,8 +46,19 @@ class Order_model extends CI_Model
         return $result['data'];
     }
 
-    public function save($data)
+    public function save()
     {
+		$data = [
+			"id_order" => $this->input->post('id_order'),
+			"id_makanan" => $this->input->post('id_makanan'),
+			"id_minuman" => $this->input->post('id_minuman'),
+			"id_dessert" => $this->input->post('id_dessert'),
+			"no_meja" => $this->input->post('no_meja'),
+			"total_harga" => $this->input->post('total_harga'),
+			"uang_bayar" => $this->input->post('uang_bayar'),
+			"uang_kembali" => $this->input->post('uang_kembali'),
+			"HEHE" => "KEY-28642"
+		];
         $response = $this->_guzzle->request('POST', '', [
             'http_errors' => false,
             'form_params' => $data

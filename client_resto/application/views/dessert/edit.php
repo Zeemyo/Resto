@@ -18,7 +18,7 @@
                     <div class="form-group row">
                         <label for="id_dessert" class="col-sm-2 col-form-label">ID Dessert</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_dessert" name="id_dessert" value=" <?= $data_siswa['id_dessert']; ?>" readonly>
+                            <input type="text" class="form-control" id="id_dessert" name="id_dessert" value=" <?= $data_Dessert['id_dessert']; ?>" readonly>
                             <small class="text-danger">
                                 <?php echo form_error('id_dessert') ?>
                             </small>
@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label for="nama_dessert" class="col-sm-2 col-formlabel">Dessert</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama_dessert" name="nama_dessert" value=" <?= $data_siswa['nama_dessert']; ?>">
+                            <input type="text" class="form-control" id="nama_dessert" name="nama_dessert" value=" <?= $data_Dessert['nama_dessert']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('nama_dessert') ?>
                             </small>
@@ -37,7 +37,7 @@
                     <div class="form-group row">
                         <label for="harga_dessert" class="col-sm-2 col-formlabel">Harga Dessert</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="harga_dessert" name="harga_dessert" rows="3"><?= $data_siswa['harga_dessert']; ?></textarea>
+                            <textarea class="form-control" id="harga_dessert" name="harga_dessert" rows="3"><?= $data_Dessert['harga_dessert']; ?></textarea>
                             <small class="text-danger">
                                 <?php echo form_error('harga_dessert') ?>
                             </small>
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <label for="stok_dessert" class="col-sm-2 col-formlabel">Stok Dessert</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="stok_dessert" name="stok_dessert" value=" <?= $data_siswa['stok_dessert']; ?>">
+                            <input type="text" class="form-control" id="stok_dessert" name="stok_dessert" value=" <?= $data_Dessert['stok_dessert']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('stok_dessert') ?>
                             </small>

@@ -2,7 +2,7 @@
     <h3><?= $title ?></h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item"><a>tu</a></li>
+            <li class="breadcrumb-item"><a>Pesan</a></li>
             <li class="breadcrumb-item "><a href="<?= base_url('pesan'); ?>">List Data Pesan</a></li>
             <li class="breadcrumb-item active" aria-current="page">Add Data Pesan</li>
         </ol>
@@ -16,6 +16,7 @@
                     $attributes = array('method' => "post", "autocomplete" => "off");
                     echo form_open('', $attributes);
                     ?>
+					
                     <div class="form-group row">
                         <label for="id_pesan" class="col-sm-2 col-form-label">Id Pesan</label>
                         <div class="col-sm-5">
@@ -26,35 +27,36 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="id_order" class="col-sm-2 col-form-label">ID Order</label>
+					<div class="form-group row">
+                        <label for="id_order" class="col-sm-2 col-form-label">Id Order</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="id_order" name="id_order" value="<?= set_value('id_order'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('id_order') ?>
+                            <select class="form-control" id="id_order" name="id_order">
+                                <option value="">Pilih Id Order</option>
+								<?php foreach ($data_order as $row):?>
+								<option value="<?= $row['id_order']?>"><?= $row['id_order']?></option>
+								<?php endforeach; ?>
+                                </select>
+                                <small class="text-danger">
+								<?php echo form_error('id_order') ?>
                             </small>
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="id_user" class="col-sm-2 col-form-label">ID User</label>
+					<div class="form-group row">
+                        <label for="id_user" class="col-sm-2 col-form-label">Id User</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?= set_value('id_user'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('id_user') ?>
+                            <select class="form-control" id="id_user" name="id_user">
+                                <option value="">Pilih Id User</option>
+								<?php foreach ($data_user as $row):?>
+								<option value="<?= $row['id_user']?>"><?= $row['id_user']?></option>
+								<?php endforeach; ?>
+                                </select>
+                                <small class="text-danger">
+								<?php echo form_error('id_user') ?>
                             </small>
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="jumlah" class="col-sm-2 col-form-label">Jumlah</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="jumlah" name="jumlah" value="<?= set_value('jumlah'); ?>">
-                            <small class="text-danger">
-                                <?php echo form_error('jumlah') ?>
-                            </small>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
                         <div class="col-sm-10 offset-md-2">

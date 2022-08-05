@@ -24,13 +24,14 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered tablehover text-sm" id="tableMahasiswa">
+                        <table class="table table-striped table-bordered tablehover text-sm" id="tableMakanan">
                             <thead>
                                 <tr class="table-primary">
                                     <th>ID MAKANAN</th>
-                                    <th>NAMA MAKANANA</th>
+                                    <th>NAMA MAKANAN</th>
                                     <th>HARGA MAKANAN</th>
                                     <th>STOK MAKANAN</th>
+                                    <th>ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,9 +44,9 @@
                                         <td><?= $row['harga_makanan'] ?></td>
                                         <td><?= $row['stok_makanan'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('makanan/detail/'.$row['makanan'])?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                            <a href="<?= base_url('makanan/edit/'.$row['makanan'])?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="<?= base_url('makanan/delete/'.$row['makanan'])?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
+                                            <a href="<?= base_url('makanan/detail/'.$row['id_makanan'])?>" class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+                                            <a href="<?= base_url('makanan/edit/'.$row['id_makanan'])?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a href="<?= base_url('makanan/delete/'.$row['id_makanan'])?>" class="btn btn-danger btn-sm item-delete tombol-hapus"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

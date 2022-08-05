@@ -11,7 +11,7 @@ class Laporan_model extends CI_Model
     {
         parent::__construct();
         $this->_guzzle = new Client([
-            'base_uri' => 'http://localhost/restoran/rest_restoran/API/laporan/laporan',
+            'base_uri' => 'http://localhost/restoran/rest_resto/api/laporan/laporan',
             'auth'  => ['admin', '1234']
         ]);
     }
@@ -68,6 +68,19 @@ class Laporan_model extends CI_Model
 
         return $result;
     }
+
+    public function edit($data)
+    {
+        $response = $this->_guzzle->request('EDIT', '', [
+            'http_errors' => false,
+            'form_params' => $data
+        ]);
+
+        $result = json_decode($response->getBody()->getContents(), TRUE);
+
+        return $result;
+    }
+
 
     public function delete($id_laporan)
     {

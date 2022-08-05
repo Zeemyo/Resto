@@ -18,7 +18,7 @@
                     <div class="form-group row">
                         <label for="id_makanan" class="col-sm-2 col-form-label">ID Makanan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_makanan" name="id_makanan" value=" <?= $data_guru['id_makanan']; ?>" readonly>
+                            <input type="text" class="form-control" id="id_makanan" name="id_makanan" value=" <?= $data_makanan['id_makanan']; ?>" readonly>
                             <small class="text-danger">
                                 <?php echo form_error('id_makanan') ?>
                             </small>
@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <label for="nama_makanan" class="col-sm-2 col-formlabel">Nama Makanan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama_makanan" name="nama_makanan" value=" <?= $data_guru['nama_makanan']; ?>">
+                            <input type="text" class="form-control" id="nama_makanan" name="nama_makanan" value=" <?= $data_makanan['nama_makanan']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('nama_makanan') ?>
                             </small>
@@ -38,7 +38,7 @@
                     <div class="form-group row">
                         <label for="harga_makanan" class="col-sm-2 col-formlabel">Harga_makanan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="harga_makanan" name="harga_makanan" value=" <?= $data_guru['harga_makanan']; ?>">
+                            <input type="text" class="form-control" id="harga_makanan" name="harga_makanan" value=" <?= $data_makanan['harga_makanan']; ?>">
                             <small class="text-danger">
                                 <?php echo form_error('harga_makanan') ?>
                             </small>
@@ -48,7 +48,7 @@
                     <div class="form-group row">
                         <label for="stok_makanan" class="col-sm-2 col-form-label">Stok Makanan</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="stok_makanan" name="stok_makanan" rows="3"><?= $data_guru['stok_makanan']; ?></textarea>
+                            <textarea class="form-control" id="stok_makanan" name="stok_makanan" rows="3"><?= $data_makanan['stok_makanan']; ?></textarea>
                             <small class="text-danger">
                                 <?php echo form_error('stok_makanan') ?>
                             </small>

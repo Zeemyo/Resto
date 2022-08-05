@@ -2,8 +2,8 @@
     <h3><?= $title ?></h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item"><a>kbm</a></li>
-            <li class="breadcrumb-item "><a href="<?= base_url('laporan'); ?>">List Data</a></li>
+            <li class="breadcrumb-item"><a>Laporan</a></li>
+            <li class="breadcrumb-item "><a href="<?= base_url('laporan'); ?>">List Data Laporan</a></li>
             <li class="breadcrumb-item active" aria-current="page">Detail Data</li>
         </ol>
     </nav>
@@ -12,7 +12,7 @@
 
             <div class="card">
                 <div class="card-header bg-info">
-                    Detail Data kbm
+                    Detail Data Laporan
                 </div>
                 <div class="card-body">     
                     <h5 class="card-title"><b>ID Laporan:</b><br><?= $data_kbm['id_laporan'] ?></h5>

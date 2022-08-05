@@ -2,9 +2,9 @@
     <h3><?= $title ?></h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item"><a>Guru</a></li>
+            <li class="breadcrumb-item"><a>Makanan</a></li>
             <li class="breadcrumb-item "><a href="<?= base_url('makanan'); ?>">List Data Makanan</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Data Guru</li>
+            <li class="breadcrumb-item active" aria-current="page">Add Data Makanan</li>
         </ol>
     </nav>
     <div class="row">
@@ -37,21 +37,11 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="harga_makanan" class="col-sm-2 col-form-label">Harga_Makanan</label>
+                        <label for="harga_makanan" class="col-sm-2 col-form-label">Harga Makanan</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="harga_makanan" name="harga_makanan" value=" <?= set_value('harga_makanan'); ?>">
                             <small class="text-danger">
                                 <?php echo form_error('harga_makanan') ?>
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= set_value('alamat'); ?></textarea>
-                            <small class="text-danger">
-                                <?php echo form_error('alamat') ?>
                             </small>
                         </div>
                     </div>

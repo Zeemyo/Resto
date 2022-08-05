@@ -11,7 +11,7 @@ class Pesan_model extends CI_Model
     {
         parent::__construct();
         $this->_guzzle = new Client([
-            'base_uri' => 'http://localhost/restoran/rest_restoran/API/pesan/pesan',
+            'base_uri' => 'http://localhost/restoran/rest_resto/API/pesan/pesan',
             'auth'  => ['admin', '1234']
         ]);
     }
